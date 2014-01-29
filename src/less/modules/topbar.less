@@ -1,0 +1,70 @@
+//**
+// * Source Topbar
+// *
+
+@topbar-height: 70px;
+
+#sourceheader {
+	.absolute;
+	width: 100%;
+	z-index: 9999;
+	background-color: #030303;
+	overflow: hidden;
+
+	a, & {
+		line-height: @topbar-height;
+	}
+
+	a {
+		display: inline-block;
+		color: #24c1a5;
+		font-weight: bold;
+		text-transform: uppercase;
+		font-size: 14px;
+		padding: 0 20px;
+		cursor: pointer;
+	}
+
+	#logo {
+		height: 70px;
+		padding-top: 3px;
+		position: absolute;
+		top: 0;
+		left: 0;
+		margin-left: -10px;
+	}
+
+	nav {
+		text-align: right;
+	}
+
+	a:hover {
+		color: #fff;
+	}
+
+	.login {
+		margin-right: -20px;
+
+		&:hover span {
+			background-color: lighten(#f34d4d, 2%);
+		}
+
+		&:active span {
+			background-color: lighten(#f34d4d, 5%);
+		}
+	}
+
+	span {
+		.border-radius(4px);
+		background-color: #f34d4d;
+		line-height: 42px;
+		display: inline-block;
+		padding: 0 20px;
+		color: #fff;
+		.transition(background 200ms);
+	}
+}
+
+#sourceheader.signedin a span {
+    display: none;
+}

@@ -1,9 +1,9 @@
 {
-    "name": "website-base",
-    "description": "A simple project to quickstart single-page coding.",
+    "name": "enigma64",
+    "description": "",
     "version": "1.0.0",
-    "author": "Marek Hrabe <marekhrabe@abdoc.net> (http://github.com/marekhrabe)",
-    "homepage": "http://marekhrabe.github.io/website-base",
+    "author": "Patrik Holcak <patrikholcak@abdoc.net> (http://github.com/patrikholcak)",
+    "homepage": "http://getenigma64.com",
     "main": "index.html",
     "private": true,
     "repository": {
@@ -30,6 +30,6 @@
         "",
         "Build v<%= pkg.version %> - <%= grunt.template.today('yyyy-mm-dd') %>"
     ],
-    "typekit": "ayj4ewi",
+    "typekit": "fer2afr",
     "analytics": "UA-45541034-1"
 }

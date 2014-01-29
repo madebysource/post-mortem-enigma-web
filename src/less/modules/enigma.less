@@ -1,0 +1,185 @@
+  #enigma {
+    display: block;
+    .size (467px, 401px);
+    background-repeat: no-repeat;
+    background-image: url(assets/enigma.png);
+    position: relative;
+    .user-select (none);
+
+    canvas {
+      display: none;
+    }
+
+    &.awesome {
+      background-image: url(assets/enigma-blank.png);
+      .perspective (1000px);
+
+      canvas {
+        display: block;
+        position: absolute;
+      }
+
+      .display {
+        left: 100px;
+        top: 48px;
+        .transform (~'rotateX(45deg) rotateZ(-16deg)');
+      }
+
+      .reflection {
+        left: 92px;
+        top: 15px;
+        opacity: .8;
+        .transform (~'rotateX(290deg) rotateY(189deg) rotateZ(181deg)');
+        -webkit-filter: blur(1.66px);
+        -moz-filter: blur(1.66px);
+        -ms-filter: blur(1.66px);
+        -o-filter: blur(1.66px);
+        filter: blur(1.66px);
+      }
+
+      div {
+        display: block;
+        position: relative;
+        z-index: 10;
+
+        span {
+          display: block;
+          position: absolute;
+          background-image: url(assets/buttons.png);
+          background-repeat: no-repeat;
+          .transition (~'.1s ease');
+          .transform (~'translate3d(0, 0, 0)');
+
+          b {
+            content: '';
+            display: block;
+            width: 28px;
+            height: 28px;
+            position: absolute;
+            top: -3px;
+            left: -3px;
+            cursor: pointer;
+          }
+
+          &:hover {
+            .transform (~'translate3d(0, 2px, 0)');
+          }
+          &.down, &:active {
+            .transform (~'translate3d(0, 6px, 0)');
+          }
+
+        }
+        .letter (@x, @y, @w, @h) {
+          .size (@w, @h);
+          top: @y;
+          left: @x;
+          background-position: -@x -@y;
+        }
+
+        .a {
+          .letter (144px, 148px, 22px, 15px);
+        }
+        .b {
+          .letter (289px, 148px, 23px, 14px);
+        }
+        .c {
+          .letter (234px, 160px, 22px, 15px);
+        }
+        .d {
+          .letter (202px, 136px, 22px, 14px);
+        }
+        .e {
+          .letter (175px, 113px, 21px, 14px);
+        }
+        .f {
+          .letter (230px, 131px, 22px, 14px);
+        }
+        .g {
+          .letter (257px, 125px, 21px, 14px);
+        }
+        .h {
+          .letter (283px, 120px, 21px, 13px);
+        }
+        .i {
+          .letter (304px, 90px, 20px, 11px);
+        }
+        .j {
+          .letter (309px, 115px, 21px, 13px);
+        }
+        .k {
+          .letter (334px, 110px, 20px, 13px);
+        }
+        .l {
+          .letter (367px, 132px, 22px, 13px);
+        }
+        .m {
+          .letter (342px, 137px, 22px, 14px);
+        }
+        .n {
+          .letter (316px, 142px, 22px, 14px);
+        }
+        .o {
+          .letter (328px, 85px, 20px, 12px);
+        }
+        .p {
+          .letter (143px, 179px, 24px, 17px);
+        }
+        .q {
+          .letter (118px, 124px, 22px, 13px);
+        }
+        .r {
+          .letter (203px, 108px, 20px, 13px);
+        }
+        .s {
+          .letter (173px, 142px, 23px, 15px);
+        }
+        .t {
+          .letter (229px, 104px, 21px, 12px);
+        }
+        .u {
+          .letter (280px, 94px, 20px, 12px);
+        }
+        .v {
+          .letter (262px, 154px, 22px, 15px);
+        }
+        .w {
+          .letter (147px, 119px, 22px, 13px);
+        }
+        .x {
+          .letter (205px, 166px, 22px, 16px);
+        }
+        .y {
+          .letter (175px, 172px, 23px, 17px);
+        }
+        .z {
+          .letter (255px, 99px, 20px, 12px);
+        }
+      }
+
+      .led {
+        display: block;
+        .size (125px, 140px);
+        background-image: url(assets/led.png);
+        position: absolute;
+        top: 111px;
+        left: 63px;
+        .animation (~'led 2s ease infinite');
+        .transition (~'.3s ease');
+        .transform (~'translate3d(0, 0, 0)');
+      }
+
+      &:hover {
+        .led {
+          .opacity (1);
+          .animation (~'blink 3s ease infinite');
+        }
+      }
+      &.pressed {
+        .led {
+          .opacity (0);
+          .animation (none);
+          .transition (~'.1s ease');
+        }
+      }
+    }
+  }

@@ -9,7 +9,7 @@
 -->
 
 <meta name="viewport" content="width=960">
-<link rel="stylesheet" href="/main.css">
+<link rel="stylesheet" href="main.css">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <link rel="shortcut icon" href="assets/favicon.png">
 <script src="//use.typekit.net/<%= pkg.typekit %>.js"></script>
@@ -17,23 +17,43 @@
 </head>
 
 <body>
-
-<section class="header">
+<div id="sourceheader">
     <div class="container">
-        <h1>website-base</h1>
-        <h2>by <a href="http://github.com/marekhrabe">marekhrabe</a></h2>
+        <a href="http://madebysource.com" id="logo">
+            <img src="assets/logo.png" alt="&lt;/&gt; source">
+        </a>
+        <nav>
+            <a href="https://madebysource.com/">Products</a>
+            <a href="/">FAQ</a>
+            <a href="https://madebysource.com/" class="login"><strong id="sourceuser"></strong><span>Log in</span></a>
+        </nav>
     </div>
-</section>
+</div>
 
-<section class="content">
-    <div class="container">
-        <h1>A simple project to quickstart single-page coding.</h1>
+<div class="message">
+    <div id="enigma"></div>
+    <h1>
+        <span>Enigma64</span> + <span>PNG Hat</span>
+    </h1>
+    <p>We're excited to announce that Enigma64 has been acquired by Source!</p>
+    <p>We care a lot about how people communicate, and we did our best to provide you with the most intuitive and pleasurable experience.<br>Now we're joining the PNG Hat to accomplish a bigger vision — one that we think we can better achieve with PNG Hat.</p>
+    <p>Sincerely your Source Team<br>For all support inquiries, please email <a href="mailto:support@madebysource.com">support@madebysource.com</a>.</p>
+    <hr>
+    <a href="//pnghat.madebysource.com?utm-medium=web&utm-source=getenigma64.com&utm-campaign=pnghat" class="hat">Visit PNG Hat</a>
+</div>
 
-        <p>Just clone repo and start working.</p>
-
-        <p>Enjoy.</p>
+<footer>
+    <div class="container group">
+        <div class="connect">
+            <p>Support: <a href="mailto:team@madebysource.com">team@madebysource.com</a></p>
+            <iframe allowtransparency="true" frameborder="0" scrolling="no"
+              delayed-src="//platform.twitter.com/widgets/follow_button.html?screen_name=madebysource&show_count=true&show_screen_name=false"
+              style="width:140px; height:20px;"></iframe>
+            <iframe delayed-src="//www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.facebook.com%2Fmadebysource&amp;width&amp;layout=button_count&amp;action=like&amp;show_faces=false&amp;share=false&amp;height=21&amp;appId=199408890129170" scrolling="no" frameborder="0" style="border:none; overflow:hidden; height:21px;width: 150px;" allowTransparency="true"></iframe>
+        </div>
+        <aside>Copyright © 2013 Piffle, LLC</aside>
     </div>
-</section>
+</footer>
 
 <script src="app.js"></script>
 <script src="//google-analytics.com/ga.js"></script>
