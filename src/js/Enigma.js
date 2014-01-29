@@ -19,7 +19,7 @@ var Enigma = function (element) {
     this.element.className = 'awesome';
 
     // text content
-    this.lines = ['DATA:IMAGE/PNG;BASE64,'];
+    this.lines = [''];
     this.queue = [];
     this.nextLetterAppend = 3000;
 
@@ -38,16 +38,6 @@ var Enigma = function (element) {
     this.scrollSpeed = 30;
     this.maxWidth = 170;
     this.maxLines = 2;
-
-    // words
-    this.nextWord = 15000;
-    this.wordInterval = 15000;
-    this.words = ['p,i,f,f,l,e', 'c,s,s,/,h,a,t', 'e,n,i,g,m,a', 'b,y,/,m,a,r,e,k', 't,h,i,s,/,i,s,/,n,o,t,/,r,a,n,d,o,m', 'l,o,l', 'o,m,g', 'b,a,s,e,6,4', ',,,,,,,,,,,,,,l,o,l,,,,,,/,l,a,g,,,,', 'w,t,f', 'd,a,f,u,q,?', 'j,a,n,/,p,a,l,o,u,n,e,k', 'j,a,n,/,p,a,l,o,u,n,e,k', 'j,a,n,/,p,a,l,o,u,n,e,k', 'j,a,n,/,p,a,l,o,u,n,e,k', 'p,e,t,r,/,b,r,z,e,k', 'h,e,l,l,o,/,I,a,m,/,v,u'];
-    this.wordSeparator = '/';
-
-    // text container
-    this.textContainer = [];
-    this.database = new Firebase('https://getenigma64.firebaseIO.com/');
 };
 
 /**
@@ -115,23 +105,8 @@ Enigma.prototype.prepareEventListeners = function () {
         }
     }, false);
     document.addEventListener('keydown', function (e) {
-        var letter = String.fromCharCode(e.which),
-            inputTest = /[a-zA-Z0-9 ]/ig;
+        var letter = String.fromCharCode(e.which);
 
-        // Check if input is not bulshit
-        if (inputTest.test(letter)) {
-            that.textContainer.push(letter);
-        }
-        clearTimeout(addLetter);
-        addLetter = setTimeout(function () {
-            var text = that.textContainer.join('');
-            try {
-                if (text.length > 1) that.database.push({text: text[0].toUpperCase() + text.slice(1).toLowerCase() + '. '});
-            } 
-            catch (e) {}     
-            that.textContainer.length = 0;
-        }, 3000);
-        
         if (that.buttons[letter]) {
             that.buttonDown(letter);
             that.appendLetter(letter);
@@ -305,7 +280,7 @@ Enigma.prototype.update = function (delta) {
         this.nextLetterAppend -= delta;
         if (this.nextLetterAppend < 0) {
             this.nextLetterAppend = 100 + Math.random() * 300;
-            var nextLetter = this.queue.length ? this.queue.shift() : this.letters[Math.floor(this.letters.length * Math.random())];
+            var nextLetter = this.queue.length ? this.queue.shift() : '';
             this.appendLetter(nextLetter);
             this.pushButton(nextLetter);
         }
@@ -328,19 +303,6 @@ Enigma.prototype.update = function (delta) {
         if (this.scrollY >= this.lineHeight) {
             this.lines.shift();
             this.scrollY = 0;
-        }
-    }
-
-    // random words
-    if (this.writing) {
-        this.nextWord -= delta;
-    }
-    if (this.nextWord < 0 && this.writing) {
-        this.nextWord = this.wordInterval + 5 * Math.random();
-        if (!this.queue.length) {
-            this.queue = this.words[Math.floor(this.words.length * Math.random())].toUpperCase().split(',');
-            this.queue.unshift(this.wordSeparator);
-            this.queue.push(this.wordSeparator);
         }
     }
 
